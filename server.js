@@ -3,23 +3,17 @@ import { createServer  } from 'http';
 import { Server } from 'socket.io';
 import {routerProductos} from './src/routes/productos.routes.js';
 import {routerCarrito} from './src/routes/carrito.routes.js';
-import { routerMensajes } from './src/routes/mensajes.routes.js';
-import { agregarMensaje, listarMensajesNormalizados } from './src/controllers/mensajes.controller.js';
+import { routerRandomProductos } from './src/routes/randomProducts.routes.js';
+import { routerMensajes, listarMensajesNormalizados, agregarmensaje } from './src/routes/mensajes.routes.js';
 import { routerAuth } from './src/routes/auth.routes.js';
 import { routerHome } from './src/routes/home.routes.js';
-import { routerGraphql } from './src/routes/graphql.routes.js';
+import dotenv from 'dotenv';
 import connectMongo from 'connect-mongo';
 import session from "express-session";
 import passport from 'passport';
-import cors from 'cors';
-import minimist from 'minimist';
-import cluster from 'cluster';
-import os from 'os';
-import { logger } from './src/config/configLogger.js';
-import { config } from './src/config/config.js';
-import { graphqlHTTP } from 'express-graphql';
-import GraphqlSchema from './src/graphql/schema.js'
-import { getAllProducts, getProductById, addProduct, updateProduct, deleteProduct, getCartProducts, addToCart, deleteCartProduct } from './src/graphql/resolver.js';
+
+
+dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
@@ -27,27 +21,17 @@ const io = new Server(httpServer);
 
 
 const MongoStore = connectMongo.create({
-    mongoUrl: "mongodb+srv://Lautaro:batman123@cluster0.jfywafn.mongodb.net/sessions?retryWrites=true&w=majority",
+    mongoUrl: process.env.MONGO_URL,
     ttl: 600 
-});
+})
+
 
 app.use(session({
     store: MongoStore,
-    secret: "1234567890!@#$%^&*()",
+    secret: process.env.SECRET_KEY,
     resave: true,
     saveUninitialized: true
-}));
-
-
-if(config.server.ENVIRONMENT == 'development') {
-    app.use(cors())
-} else {
-    app.use(cors({
-        origin: 'http://localhost:8080',
-        optionsSuccessStatus: 200,
-        methods: "GET, PUT, POST"
-    }));
-}
+}))
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -56,84 +40,41 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-app.set('views', './src/views');
+app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.use('/api/productos', routerProductos);
 app.use('/api/carrito', routerCarrito);
+app.use('/api/productos-test', routerRandomProductos);
 app.use('/api/mensajes', routerMensajes);
-app.use('/api/', routerAuth);
-app.use('/api/home', routerHome);
-
-app.use('/api/graphql', routerGraphql, graphqlHTTP({
-    schema: GraphqlSchema,
-    rootValue: {
-        getAllProducts,
-        getProductById,
-        addProduct,
-        updateProduct,
-        deleteProduct,
-        getCartProducts,
-        addToCart,
-        deleteCartProduct
-    },
-    graphiql: true,
-}));
+app.use(routerAuth);
+app.use('/home', routerHome);
 
 
 app.get('*', (req, res)=>{
-    const {url, method } = req;
-    logger.warn(`Ruta ${method} ${url} no implementada`)
-    res.render('viewRutaIncorrecta', { url, method });
+    res.status(404).json({
+        error: 404,
+        descripcion: `Ruta ${req.url} no encontrada mediante el metodo ${req.method}`
+    })
 });
 
-let args = minimist(process.argv.slice(2));
 
-let options = {default: { modo: 'FORK'}};
-minimist([], options);
+const PORT = 8080 || process.env.PORT;
 
-const CPU_CORES = os.cpus().length;
-const MODO = args.modo || args.m || options.default.modo;
-const PORT =  process.env.PORT || 8080;
+const server = httpServer.listen(PORT, () => {
+    console.log(`Servidor escuchando en puerto http://localhost:${PORT}`);
+});
 
-parseInt(process.argv[2]) || args.port || args.p || options.default.port ;
+server.on('error', err => console.log(`error en server ${err}`));
 
+io.on('connection', async socket => {
+    console.log(`Nuevo cliente conectado! ${socket.id}`);
+    
+    io.sockets.emit('from-server-messages', await listarMensajesNormalizados());
 
-if (cluster.isPrimary && MODO == 'CLUSTER') {
-
-    for (let i = 0; i < CPU_CORES; i++) {
-        cluster.fork();
-    }
-
-    cluster.on('exit', worker => {
-        logger.info(`Worker ${process.pid} ${worker.id} ${worker.pid} finalizo ${new Date().toLocaleString()}`);
-        cluster.fork();
+    socket.on('from-client-messages', async messages => {
+        await agregarmensaje(messages);
+        io.sockets.emit('from-server-messages', await listarMensajesNormalizados())
     });
 
-} else {
-
-    if (MODO != 'FORK' && MODO != 'CLUSTER') {
-        logger.error(`El modo de ejecucion solicitado ( ${MODO} ) es incorrecto.`)
-        throw new Error()
-    } 
-
-    const server = httpServer.listen(PORT, () => {
-        logger.info(`Servidor escuchando en puerto http://localhost:${PORT}/api - PID WORKER ${process.pid}`);
-    });
-
-    server.on('error', err => logger.error(`error en server ${err}`));
-
-
-    io.on('connection', async socket => {
-        logger.info(`Nuevo cliente conectado! ${socket.id}`);
-
-        io.sockets.emit('from-server-messages', await listarMensajesNormalizados());
-
-        socket.on('from-client-messages', async messages => {
-            await agregarMensaje(messages);
-            io.sockets.emit('from-server-messages', await listarMensajesNormalizados())
-        });
-
-    });
-}
-export default app;
+});

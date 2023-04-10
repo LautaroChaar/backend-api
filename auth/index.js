@@ -1,7 +1,10 @@
 export function auth(req, res, next) {
     if(req.isAuthenticated()){
-        next();
+        next()
     } else {
-        res.redirect('/api/login');
+        res.redirect('/login')
     }
 }
+
+
+

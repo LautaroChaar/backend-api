@@ -1,6 +1,6 @@
 function timer() {
     setTimeout(() => {
-        location.href = '/api/'
+        location.href = '/'
     }, 2000)
 };
 

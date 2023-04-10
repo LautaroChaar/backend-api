@@ -1,10 +1,12 @@
 import { Router } from 'express';
 import { auth } from '../../auth/index.js';
-import { userHome } from '../controllers/home.controller.js';
 
 const routerHome = new Router();
 
-routerHome.get('/', auth, userHome);
+routerHome.get('/', auth, (req, res) => {
+    const nombre = req.user.username;
+    res.render('viewChat', { nombre });
+})
+
 
 export { routerHome };
-

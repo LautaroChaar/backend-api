@@ -1,7 +1,7 @@
-export function auth(req, res, next) {
-    if(req.isAuthenticated()){
-        next();
+export const auth = async (ctx, next) => {
+    if(ctx.isAuthenticated()){
+        await next();
     } else {
-        res.redirect('/api/login');
+        ctx.redirect('/api/login');
     }
 }

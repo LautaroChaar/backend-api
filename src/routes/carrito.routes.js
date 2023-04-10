@@ -1,8 +1,10 @@
-import  express  from 'express';
+import koaRouter from 'koa-router';
 import { auth } from '../../auth/index.js';
 import { deleteCartById, getCartProducts, cartView, addToCart, buyProducts, deleteCartProduct } from '../controllers/carrito.controller.js';
 
-const routerCarrito = express.Router();
+const routerCarrito = new koaRouter({
+    prefix: '/api/carrito'
+});
 
 routerCarrito.delete('/:id', deleteCartById); 
 

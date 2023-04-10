@@ -19,8 +19,6 @@ div.mt-5
                                 img(width="30" src=product.imagen, alt="")
         else
             h3(class="alert alert-warning text-center") No se encontraron productos
-    form(method="POST" action="/api/carrito/productos" class="mx-auto")
+form(method="GET" action="/api/graphql/")
         div.form-group
-            label(for="text") Id del producto
-            input.form-control(type="number" name="idProd" aria-describedby="userComent" min="1" required)
-            button.btn.btn-success.mt-3(type="submit") Agregar al carrito
+            button.btn.btn-success.mt-3(type="submit") Volver

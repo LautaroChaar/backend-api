@@ -112,6 +112,7 @@ class ContenedorMongoDB {
             await this.conn.disconnect();
         }
     }
+
 }
 
 export default ContenedorMongoDB;

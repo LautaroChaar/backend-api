@@ -22,18 +22,9 @@ export async function agregarMensaje(mensaje) {
     await apiMensajes.add(mensaje);
 };
 
-export async function getAllMessages(req, res) {
-    const {url, method } = req;
-    const { username } = req.user;
-    logger.info(`Ruta ${method} /api/mensajes${url}`);
-    const mensajes = await apiMensajes.getAll();
-    res.render('viewChat', {mensajes, username} );
-}; 
 
-export async function getMessages(req, res) {
-    const {url, method } = req;
-    const username = req.params.email;
+export async function getAllMessages(ctx) {
+    const {url, method } = ctx.req;
     logger.info(`Ruta ${method} /api/mensajes${url}`);
-    const mensajes = await apiMensajes.getByEmail(username);
-    res.render('viewMensajes', {mensajes});
+    ctx.render('viewChat', await apiMensajes.getAll());
 }; 

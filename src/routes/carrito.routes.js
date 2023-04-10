@@ -1,52 +1,22 @@
 import  express  from 'express';
-import { logger } from '../utils/configLogger.js';
-
-import { carritosDao as apiCarrito } from '../daos/index.js';
-import { productosDao as apiProductos } from '../daos/index.js';
+import { auth } from '../../auth/index.js';
+import { deleteCartById, getCartProducts, cartView, addToCart, buyProducts, deleteCartProduct } from '../controllers/carrito.controller.js';
 
 const routerCarrito = express.Router();
 
-routerCarrito.post('/', async (req, res) => {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} /api/carrito${url}`);
-    res.json((await apiCarrito.add(req.body)));
-});
+routerCarrito.delete('/:id', deleteCartById); 
 
-routerCarrito.delete('/:id', async (req, res) => {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} /api/carrito${url}`);
-    res.json((await apiCarrito.deleteById(req.params.id)));
-}); 
+routerCarrito.get('/:id/productos', getCartProducts); 
 
-routerCarrito.get('/:id/productos', async (req, res) => {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} /api/carrito${url}`);
-    const carrito = await apiCarrito.getById(req.params.id);
-    res.json((carrito.productos));
-}); 
+routerCarrito.get('/', auth, cartView); 
 
-routerCarrito.post('/:id/productos', async (req, res) => {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} /api/carrito${url}`);
-    const carrito = await apiCarrito.getById(req.params.id);
-    const producto = await apiProductos.getById(req.body.id);
-    carrito.productos.push(producto);
-    const elem = {...carrito, id: Number(req.params.id)};
-    await apiCarrito.update(elem)
-    res.end();
-}); 
+routerCarrito.post('/productos', auth, addToCart); 
 
-routerCarrito.delete('/:id/productos/:id_prod', async (req, res) => {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} /api/carrito${url}`);
-    const carrito = await apiCarrito.getById(req.params.id);
-    const index = carrito.productos.findIndex( p => p.id == req.params.id_prod);
-    if (index != -1 ) {
-        carrito.productos.splice(index, 1);
-        const elem = {...carrito, id: Number(req.params.id)};
-        await apiCarrito.update(elem);
-    }
-    res.end();
-});
+routerCarrito.post('/comprar/productos', auth, buyProducts); 
+
+routerCarrito.delete('/:id/productos/:id_prod',deleteCartProduct);
 
 export { routerCarrito };
+
+
+

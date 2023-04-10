@@ -1,0 +1,1066 @@
+[2022-12-22T12:31:40.382] [ERROR] default - TypeError: this.model.updateOne(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T12:40:20.713] [ERROR] default - TypeError: this.model.updateOne(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T12:40:43.496] [ERROR] default - TypeError: this.model.updateOne(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T12:41:04.534] [ERROR] default - TypeError: this.model.updateOne(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T12:41:21.636] [ERROR] default - TypeError: this.model.updateOne(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T12:44:28.482] [ERROR] default - TypeError: this.model.updateOne(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T12:44:51.712] [ERROR] default - TypeError: this.model.updateOne(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T12:45:09.771] [ERROR] default - TypeError: this.model.update(...) is not a function
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:72:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/controllers/productos.controller.js:43:15)
+[2022-12-22T15:13:54.821] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2022-12-22T15:13:54.863] [ERROR] default - MongoExpiredSessionError: Cannot use a session that has ended
+    at applySession (C:\backend\desafio\node_modules\mongodb\lib\sessions.js:660:16)
+    at Connection.command (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection.js:271:53)
+    at C:\backend\desafio\node_modules\mongodb\lib\sdam\server.js:211:18
+    at Object.callback (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:302:13)
+    at ConnectionPool.processWaitQueue (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:481:33)
+    at C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:205:37
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-12-22T15:13:54.866] [ERROR] default - MongoExpiredSessionError: Cannot use a session that has ended
+    at applySession (C:\backend\desafio\node_modules\mongodb\lib\sessions.js:660:16)
+    at Connection.command (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection.js:271:53)
+    at C:\backend\desafio\node_modules\mongodb\lib\sdam\server.js:211:18
+    at Object.callback (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:302:13)
+    at ConnectionPool.processWaitQueue (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:481:33)
+    at C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:205:37
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-12-22T15:17:23.758] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2022-12-22T15:17:23.796] [ERROR] default - MongoExpiredSessionError: Cannot use a session that has ended
+    at applySession (C:\backend\desafio\node_modules\mongodb\lib\sessions.js:660:16)
+    at Connection.command (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection.js:271:53)
+    at C:\backend\desafio\node_modules\mongodb\lib\sdam\server.js:211:18
+    at Object.callback (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:302:13)
+    at ConnectionPool.processWaitQueue (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:481:33)
+    at C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:205:37
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-12-22T15:17:23.798] [ERROR] default - MongoExpiredSessionError: Cannot use a session that has ended
+    at applySession (C:\backend\desafio\node_modules\mongodb\lib\sessions.js:660:16)
+    at Connection.command (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection.js:271:53)
+    at C:\backend\desafio\node_modules\mongodb\lib\sdam\server.js:211:18
+    at Object.callback (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:302:13)
+    at ConnectionPool.processWaitQueue (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:481:33)
+    at C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:205:37
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-12-22T15:36:46.696] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2022-12-22T15:36:46.732] [ERROR] default - MongoExpiredSessionError: Cannot use a session that has ended
+    at applySession (C:\backend\desafio\node_modules\mongodb\lib\sessions.js:660:16)
+    at Connection.command (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection.js:271:53)
+    at C:\backend\desafio\node_modules\mongodb\lib\sdam\server.js:211:18
+    at Object.callback (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:302:13)
+    at ConnectionPool.processWaitQueue (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:481:33)
+    at C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:205:37
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-12-22T15:36:46.734] [ERROR] default - MongoExpiredSessionError: Cannot use a session that has ended
+    at applySession (C:\backend\desafio\node_modules\mongodb\lib\sessions.js:660:16)
+    at Connection.command (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection.js:271:53)
+    at C:\backend\desafio\node_modules\mongodb\lib\sdam\server.js:211:18
+    at Object.callback (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:302:13)
+    at ConnectionPool.processWaitQueue (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:481:33)
+    at C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:205:37
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-12-23T10:31:39.786] [ERROR] default - Error: carritos validation failed: id: Path `id` is required.
+    at ValidationError.inspect (C:\backend\desafio\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\backend\desafio\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\backend\desafio\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\backend\desafio\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\backend\desafio\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    id: ValidatorError: Path `id` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'id',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'carritos validation failed'
+}
+[2023-01-05T14:25:20.854] [ERROR] default - CastError: Cast to Number failed for value "{ id: '2000' }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: `"{ id: '2000' }"`,
+  kind: 'Number',
+  value: { id: '2000' },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:25:31.100] [ERROR] default - CastError: Cast to Number failed for value "{ id: '2' }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: `"{ id: '2' }"`,
+  kind: 'Number',
+  value: { id: '2' },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:25:50.992] [ERROR] default - CastError: Cast to Number failed for value "{ id: '2' }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: `"{ id: '2' }"`,
+  kind: 'Number',
+  value: { id: '2' },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:26:13.696] [ERROR] default - CastError: Cast to Number failed for value "{ id: '2' }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: `"{ id: '2' }"`,
+  kind: 'Number',
+  value: { id: '2' },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:27:12.424] [ERROR] default - CastError: Cast to Number failed for value "{ id: '1' }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: `"{ id: '1' }"`,
+  kind: 'Number',
+  value: { id: '1' },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:27:59.751] [ERROR] default - CastError: Cast to Number failed for value "{ id: 1 }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"{ id: 1 }"',
+  kind: 'Number',
+  value: { id: 1 },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:34:47.224] [ERROR] default - CastError: Cast to Number failed for value "{ id: '2' }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: `"{ id: '2' }"`,
+  kind: 'Number',
+  value: { id: '2' },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:35:23.209] [ERROR] default - CastError: Cast to Number failed for value "NaN" (type number) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:342:32)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[2023-01-05T14:35:25.980] [ERROR] default - CastError: Cast to Number failed for value "NaN" (type number) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:342:32)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[2023-01-05T14:37:02.331] [ERROR] default - CastError: Cast to Number failed for value "NaN" (type number) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:342:32)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[2023-01-05T14:37:39.504] [ERROR] default - CastError: Cast to Number failed for value "{ id: 2 }" (type Object) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"{ id: 2 }"',
+  kind: 'Number',
+  value: { id: 2 },
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:286:34)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'Object'
+}
+[2023-01-05T14:38:33.352] [ERROR] default - CastError: Cast to Number failed for value "NaN" (type number) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:342:32)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[2023-01-05T14:57:26.301] [ERROR] default - Error: productos validation failed: stock: Path `stock` is required., precio: Path `precio` is required., foto: Path `foto` is required., codigo: Path `codigo` is required., descripcion: Path `descripcion` is required., nombre: Path `nombre` is required.
+    at ValidationError.inspect (C:\backend\desafio\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\backend\desafio\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\backend\desafio\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\backend\desafio\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\backend\desafio\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    stock: ValidatorError: Path `stock` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'stock',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    precio: ValidatorError: Path `precio` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'precio',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    foto: ValidatorError: Path `foto` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'foto',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    codigo: ValidatorError: Path `codigo` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'codigo',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    descripcion: ValidatorError: Path `descripcion` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'descripcion',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    nombre: ValidatorError: Path `nombre` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'nombre',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-05T15:29:40.988] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-05T15:31:53.021] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-05T15:43:22.184] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-05T16:46:33.826] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-05T16:50:15.810] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T09:37:43.274] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T09:50:41.418] [WARN] default - Ruta GET /api/graphql no implementada
+[2023-01-06T09:50:41.524] [WARN] default - Ruta GET /api/graphql no implementada
+[2023-01-06T09:50:47.639] [WARN] default - Ruta GET /api/graphql no implementada
+[2023-01-06T09:50:47.761] [WARN] default - Ruta GET /api/graphql no implementada
+[2023-01-06T09:52:21.217] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T10:01:46.356] [ERROR] default - Error: carritos validation failed: id: Path `id` is required.
+    at ValidationError.inspect (C:\backend\desafio\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\backend\desafio\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\backend\desafio\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\backend\desafio\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\backend\desafio\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    id: ValidatorError: Path `id` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'id',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'carritos validation failed'
+}
+[2023-01-06T10:02:17.659] [ERROR] default - Error: carritos validation failed: id: Path `id` is required.
+    at ValidationError.inspect (C:\backend\desafio\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\backend\desafio\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\backend\desafio\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\backend\desafio\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\backend\desafio\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    id: ValidatorError: Path `id` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'id',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'carritos validation failed'
+}
+[2023-01-06T10:37:29.219] [ERROR] default - MongoExpiredSessionError: Cannot use a session that has ended
+    at applySession (C:\backend\desafio\node_modules\mongodb\lib\sessions.js:660:16)
+    at Connection.command (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection.js:271:53)
+    at C:\backend\desafio\node_modules\mongodb\lib\sdam\server.js:211:18
+    at Object.callback (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:302:13)
+    at ConnectionPool.processWaitQueue (C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:481:33)
+    at C:\backend\desafio\node_modules\mongodb\lib\cmap\connection_pool.js:205:37
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2023-01-06T11:42:26.493] [WARN] default - Ruta GET /src/graphql/resolver.js no implementada
+[2023-01-06T11:43:41.304] [WARN] default - Ruta GET /api/src/graphql/resolver.js no implementada
+[2023-01-06T11:44:12.003] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T11:57:32.638] [WARN] default - Ruta GET /api/src/graphql/resolver.js no implementada
+[2023-01-06T12:44:41.839] [ERROR] default - Error: carritos validation failed: id: Path `id` is required.
+    at ValidationError.inspect (C:\backend\desafio\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\backend\desafio\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\backend\desafio\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\backend\desafio\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\backend\desafio\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    id: ValidatorError: Path `id` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'id',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'carritos validation failed'
+}
+[2023-01-06T12:53:32.834] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T12:54:13.078] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T12:55:16.238] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T12:56:38.658] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T12:57:02.796] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T12:57:31.104] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T12:57:41.796] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T12:58:32.821] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Get by id',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-06T12:59:11.228] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T12:59:45.276] [ERROR] default - Error: productos validation failed: stock: Path `stock` is required., precio: Path `precio` is required., foto: Path `foto` is required., codigo: Path `codigo` is required., descripcion: Path `descripcion` is required., nombre: Path `nombre` is required.
+    at ValidationError.inspect (C:\backend\desafio\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\backend\desafio\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\backend\desafio\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\backend\desafio\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\backend\desafio\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    stock: ValidatorError: Path `stock` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'stock',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    precio: ValidatorError: Path `precio` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'precio',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    foto: ValidatorError: Path `foto` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'foto',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    codigo: ValidatorError: Path `codigo` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'codigo',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    descripcion: ValidatorError: Path `descripcion` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'descripcion',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    nombre: ValidatorError: Path `nombre` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'nombre',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-06T13:01:44.162] [ERROR] default - Error: productos validation failed: stock: Path `stock` is required., precio: Path `precio` is required., foto: Path `foto` is required., codigo: Path `codigo` is required., descripcion: Path `descripcion` is required., nombre: Path `nombre` is required.
+    at ValidationError.inspect (C:\backend\desafio\node_modules\mongoose\lib\error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\backend\desafio\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\backend\desafio\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\backend\desafio\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\backend\desafio\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    stock: ValidatorError: Path `stock` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'stock',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    precio: ValidatorError: Path `precio` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'precio',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    foto: ValidatorError: Path `foto` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'foto',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    codigo: ValidatorError: Path `codigo` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'codigo',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    descripcion: ValidatorError: Path `descripcion` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'descripcion',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    nombre: ValidatorError: Path `nombre` is required.
+        at validate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\backend\desafio\node_modules\mongoose\lib\document.js:2877:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'nombre',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'productos validation failed'
+}
+[2023-01-06T13:40:57.598] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T13:40:59.488] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T13:41:00.470] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T13:41:05.745] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T13:43:07.716] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T13:43:08.815] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T13:44:16.958] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T14:37:05.227] [WARN] default - Ruta GET /api/carrito/productos?idProd=1&nombre=&precio=&descripcion=&stock=&codigo=&foto= no implementada
+[2023-01-06T14:37:05.340] [WARN] default - Ruta GET /api/carrito/productos?idProd=1&nombre=&precio=&descripcion=&stock=&codigo=&foto= no implementada
+[2023-01-06T14:37:59.540] [WARN] default - Ruta GET /api/carrito/productos?idProd=1&nombre=Calculadora&precio=&descripcion=&stock=&codigo=&foto= no implementada
+[2023-01-06T14:37:59.802] [WARN] default - Ruta GET /api/carrito/productos?idProd=1&nombre=Calculadora&precio=&descripcion=&stock=&codigo=&foto= no implementada
+[2023-01-06T14:41:05.365] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T14:41:38.186] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-06T14:43:43.250] [ERROR] default - CastError: Cast to Number failed for value "NaN" (type number) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:342:32)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[2023-01-06T14:45:58.890] [ERROR] default - CastError: Cast to Number failed for value "NaN" (type number) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:342:32)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[2023-01-06T14:47:20.871] [ERROR] default - CastError: Cast to Number failed for value "NaN" (type number) at path "id" for model "productos"
+    at model.Query.exec (C:\backend\desafio\node_modules\mongoose\lib\query.js:4891:21)
+    at Query.then (C:\backend\desafio\node_modules\mongoose\lib\query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\backend\desafio\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\backend\desafio\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\backend\desafio\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\backend\desafio\node_modules\mongoose\lib\cast.js:342:32)
+      at Query.cast (C:\backend\desafio\node_modules\mongoose\lib\query.js:5319:12)
+      at Query._castConditions (C:\backend\desafio\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\backend\desafio\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[2023-01-06T14:54:27.494] [ERROR] default - TypeError: Cannot read properties of undefined (reading 'id')
+    at ProductosDaoMongoDB.update (file:///C:/backend/desafio/src/models/containers/contenedorMongoDB.js:67:36)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async updateProduct (file:///C:/backend/desafio/src/graphql/resolver.js:27:5)
+[2023-01-06T15:02:19.917] [WARN] default - Ruta GET /favicon.ico no implementada
+[2023-01-07T09:45:26.294] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-07T09:50:35.384] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-07T09:52:07.650] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-07T09:53:48.554] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'DeleteById',
+  detalle: 'Elemento no encontrado.'
+}
+[2023-01-07T11:02:30.707] [ERROR] default - CustomError {
+  codigo: 404,
+  descripcion: 'Update',
+  detalle: 'Elemento no encontrado.'
+}

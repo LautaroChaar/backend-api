@@ -1,7 +1,7 @@
 import  express  from 'express';
-import { config } from '../config/config.js';
-import { logger } from '../config/configLogger.js';
-import { getAllProducts, getProductById, addProduct, updateProduct, deleteProduct, deleteAllProducts, getProductByCategory } from '../controllers/productos.controller.js';
+import { config } from '../utils/config.js';
+import { logger } from '../utils/configLogger.js';
+import { getAllProducts, getProductById, addProduct, updateProduct, deleteProduct, deleteAllProducts } from '../controllers/productos.controller.js';
 
 const routerProductos = express.Router();
 
@@ -18,9 +18,7 @@ const admin = (req, res, next) => {
 
 routerProductos.get('/', getAllProducts); 
 
-routerProductos.get('/:id', getProductById);
-
-routerProductos.get('/categoria/:category', getProductByCategory); 
+routerProductos.get('/:id', getProductById); 
 
 routerProductos.post('/', admin, addProduct); 
 

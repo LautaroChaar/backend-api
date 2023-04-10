@@ -1,18 +1,19 @@
 import passport from 'passport';
 import { Strategy } from 'passport-local';
 import bcrypt from 'bcrypt';
-import { logger } from '../config/configLogger.js';
+import { logger } from '../utils/configLogger.js';
 import { usuariosDao as apiUsuarios } from '../service/index.js';
 import multer from 'multer';
-import { config } from '../config/config.js';
 import { createTransport } from 'nodemailer';
+
+const TEST_MAIL = 'baby.tillman@ethereal.email';
 
 const transporter = createTransport({
    host: 'smtp.ethereal.email',
    port: 587,
    auth: {
-       user: config.server.TEST_EMAIL,
-       pass: config.server.PASS_EMAIL
+       user: TEST_MAIL,
+       pass: 'BfmWpGTqfPeBGrNqSY'
    }
 });
 
@@ -23,6 +24,7 @@ async function generateHashPassword(password){
 
 async function verifyPass(usuario, password) {
     const match = await bcrypt.compare(password, usuario.password);
+    console.log(`pass login: ${password} || pass hash: ${ usuario.password}`)
     return match;
 }
 
@@ -30,7 +32,7 @@ const LocalStrategy = Strategy;
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './public/uploads');
+      cb(null, '/backend/desafio/public/uploads');
     },
     filename: function (req, file, cb) {
       cb(null, `${Date.now()} - ${file.originalname}`);
@@ -103,9 +105,9 @@ export async function registerNewUser(req, res) {
             await apiUsuarios.add(newUser);
             const mailOptions = {
                 from: 'Servidor Node.js',
-                to: config.server.TEST_EMAIL,
+                to: TEST_MAIL,
                 subject: 'Nuevo Registro',
-                html: `<h1>${name}</h1><h5>Email: ${username}</h5><h5>Fecha de nacimiento: ${dateOfBirth}</h5><h5>Dirección: ${adress}</h5><h5>Teléfono: ${phone}</h5>`
+                html: `<h1>${name}</h1><h5>Email: ${username}</h5><h5>Edad: ${dateOfBirth}</h5><h5>Dirección: ${adress}</h5><h5>Teléfono: ${phone}</h5>`
             }
             const info = await transporter.sendMail(mailOptions);
             logger.info(info);

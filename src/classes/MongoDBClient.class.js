@@ -1,7 +1,7 @@
 import CustomError from "./CustomError.class.js";
 import DBClient from "./DBClient.class.js";
-import { config } from "../config/config.js";
-import { logger } from "../config/configLogger.js";
+import {config} from "../utils/config.js";
+import { logger } from "../utils/configLogger.js";
 import mongoose from "mongoose";
 
 let instance = null;

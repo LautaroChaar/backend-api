@@ -1,6 +1,6 @@
 import CustomError from '../../classes/CustomError.class.js';
 import MongoDBClient from '../../classes/MongoDBClient.class.js';
-import { logger } from '../../config/configLogger.js';
+import { logger } from '../../utils/configLogger.js';
 
 
 class ContenedorMongoDB {
@@ -52,7 +52,7 @@ class ContenedorMongoDB {
             }
             const obj =  { ...elem, timestamp, id };
             await this.model.create(obj);
-            return (obj);
+            return ({msg: `Agregado!`});
         } catch (error) {
             logger.error(error);
             throw new CustomError(500, 'Add', 'Error al agregar elemento.');
@@ -68,8 +68,8 @@ class ContenedorMongoDB {
             if (await this.model.find({id: id}) == false) {
                 throw new CustomError(404, 'Update', 'Elemento no encontrado.');
             } else {
-                await this.model.updateOne({id: id}, {$set: {...elem}});
-                return elem;
+                await this.model.updateOne({id: id}, {$set: elem})
+                return ({msg: `Actualizado`});
             }
         } catch (error) {
             logger.error(error);
@@ -103,7 +103,7 @@ class ContenedorMongoDB {
                 throw new CustomError(404, 'DeleteById', 'Elemento no encontrado.');
             } else {
                 await this.model.deleteOne({id: id});
-                return (`Producto ${id} eliminado con exito!`);
+                return ({msg: `Eliminado con exito!`});
             }
         } catch (error) {
             logger.error(error);
@@ -112,6 +112,7 @@ class ContenedorMongoDB {
             await this.conn.disconnect();
         }
     }
+
 }
 
 export default ContenedorMongoDB;

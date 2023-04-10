@@ -1,12 +1,12 @@
 import  express  from 'express';
 import { config } from '../utils/config.js';
 import { logger } from '../utils/configLogger.js';
-import { getAllProducts, getProductById, addProduct, updateProduct, deleteProduct, deleteAllProducts } from '../controllers/productos.controller.js';
+
+import { productosDao as apiProductos } from '../daos/index.js';
 
 const routerProductos = express.Router();
 
 const isAdmin = config.isAdmin;
-
 const admin = (req, res, next) => {
     if (!isAdmin) {
         logger.error(`Error: Ingreso no autorizado mediante el metodo ${req.method}`);
@@ -16,16 +16,41 @@ const admin = (req, res, next) => {
     }
 }
 
-routerProductos.get('/', getAllProducts); 
+routerProductos.get('/', async (req, res) => {
+    const {url, method } = req;
+    logger.info(`Ruta ${method} /api/productos${url}`);
+    res.json((await apiProductos.getAll()));
+}); 
 
-routerProductos.get('/:id', getProductById); 
+routerProductos.get('/:id', async (req, res) => {
+    const {url, method } = req;
+    logger.info(`Ruta ${method} /api/productos${url}`);
+    res.json((await apiProductos.getById(req.params.id)));
+}); 
 
-routerProductos.post('/', admin, addProduct); 
+routerProductos.post('/', admin, async (req, res) => {
+    const {url, method } = req;
+    logger.info(`Ruta ${method} /api/productos${url}`);
+    res.json((await apiProductos.add(req.body)));
+}); 
 
-routerProductos.put('/:id', admin, updateProduct); 
+routerProductos.put('/:id', admin, async (req, res) => {
+    const {url, method } = req;
+    logger.info(`Ruta ${method} /api/productos${url}`);
+    const elem = {...req.body, id: Number(req.params.id)};
+    res.json((await apiProductos.update(elem)));
+}); 
 
-routerProductos.delete('/:id', admin, deleteProduct); 
+routerProductos.delete('/:id', admin, async (req, res) => {
+    const {url, method } = req;
+    logger.info(`Ruta ${method} /api/productos${url}`);
+    res.json((await apiProductos.deleteById(req.params.id)));
+}); 
 
-routerProductos.delete('/', admin, deleteAllProducts); 
+routerProductos.delete('/', admin, async (req, res) => {
+    const {url, method } = req;
+    logger.info(`Ruta ${method} /api/productos${url}`);
+    res.json((await apiProductos.deleteAll()));
+}); 
 
 export { routerProductos };

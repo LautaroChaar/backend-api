@@ -1,105 +1,82 @@
-import mongoose from 'mongoose';
-import {config} from '../utils/config.js';
+import knex from 'knex';
 import { logger } from '../utils/configLogger.js';
 
-
-class ContenedorMongoDB {
-    constructor(model) {
-        this.model = model;
+export class ContenedorMariaDB {
+    constructor(dataBase, config){
+        this.knexCli = knex(config);
+        this.dataBase = dataBase;
     }
-
 
     getAll = async () => {
         try {
-            const strConn = config.atlas.strConn;
-            await mongoose.connect(strConn);
-            return await this.model.find();
+            return await this.knexCli.from(this.dataBase).select('*').orderBy('id', 'asc');
         } catch (error) {
             logger.error(error);
             return ({code: 500, msg: `Error al completar la solicitud`});
-        } finally {
-            await mongoose.disconnect();
         }
     }
 
     getById = async (id) => {
         try {
-            const strConn = config.atlas.strConn;
-            await mongoose.connect(strConn);
-            if (await this.model.find({id: id}) == false) {
+            if (await this.knexCli.from(this.dataBase).select('*').where({id: id}) == false) {
                 return ({code: 404, msg: `No encontrado`});
             } else {
-                let res = await this.model.find({id: id});
+                let res = await this.knexCli.from(this.dataBase).select('*').where({id: id});
                 return res[0];
             }
         } catch (error) {
             logger.error(error);
             return ({code: 500, msg: `Error al completar la solicitud`});
-        } finally {
-            await mongoose.disconnect();
         }
     }
 
     add = async (elem) => {
         try {
-            const timestamp = new Date().toLocaleString();
-            const strConn = config.atlas.strConn;
-            await mongoose.connect(strConn); 
-            const objs = await this.model.find();
+            const objs = await this.knexCli.from(this.dataBase).select('*');
             let id;
             if (objs.length === 0) {
                 id = 1;
             } else {
                 id = objs[objs.length - 1].id + 1;
             }
-            const obj =  { ...elem, timestamp, id };
-            await this.model.create(obj);
+            const obj =  { ...elem, id };
+            await this.knexCli(this.dataBase).insert(obj);
             return ({msg: `Agregado!`});
         } catch (error) {
             logger.error(error);
             return ({code: 500, msg: `Error al agregar`});
-        }  finally {
-            await mongoose.disconnect();
         }
     }
 
     update = async (elem) => {
         try {
-            const strConn = config.atlas.strConn;
-            await mongoose.connect(strConn);
             const id = Number(elem.id);
-            if (await this.model.find({id: id}) == false) {
+            if (await this.knexCli.from(this.dataBase).select('*').where({id: id}) == false) {
                 return ({code: 404, msg: `No encontrado`});
             } else {
-                await this.model.updateOne({id: id}, {$set: elem})
+                await this.knexCli.from(this.dataBase).where({id: id}).update(elem);
                 return ({msg: `Actualizado`});
             }
         } catch (error) {
             logger.error(error);
             return ({code: 500, msg: `Error al actualizar`});
-        } finally {
-            await mongoose.disconnect();
         }
     }
 
     deleteById = async (id) => {
         try {
-            const strConn = config.atlas.strConn;
-            await mongoose.connect(strConn);
-            if (await this.model.find({id: id}) == false) {
+            if (await this.knexCli.from(this.dataBase).select('*').where({id: id}) == false) {
                 return ({code: 404, msg: `No encontrado`});
             } else {
-                await this.model.deleteOne({id: id});
+                await this.knexCli.from(this.dataBase).where({id: id}).del();
                 return ({msg: `Eliminado con exito!`});
             }
         } catch (error) {
             logger.error(error);
             return ({code: 500, msg: `Error al eliminar`});
-        } finally {
-            await mongoose.disconnect();
         }
     }
-
+ 
 }
 
-export default ContenedorMongoDB;
+export default ContenedorMariaDB;

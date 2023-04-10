@@ -3,10 +3,12 @@ import { createServer  } from 'http';
 import { Server } from 'socket.io';
 import {routerProductos} from './src/routes/productos.routes.js';
 import {routerCarrito} from './src/routes/carrito.routes.js';
-import { routerMensajes } from './src/routes/mensajes.routes.js';
-import { agregarMensaje, listarMensajesNormalizados } from './src/controllers/mensajes.controller.js';
+import { routerRandomProductos } from './src/routes/randomProducts.routes.js';
+import { routerMensajes, listarMensajesNormalizados, agregarmensaje } from './src/routes/mensajes.routes.js';
 import { routerAuth } from './src/routes/auth.routes.js';
 import { routerHome } from './src/routes/home.routes.js';
+import { routerInfo } from './src/routes/info.routes.js';
+import { routerRandoms } from './src/routes/randoms.routes.js';
 import connectMongo from 'connect-mongo';
 import session from "express-session";
 import passport from 'passport';
@@ -14,7 +16,9 @@ import minimist from 'minimist';
 import cluster from 'cluster';
 import os from 'os';
 import { logger } from './src/utils/configLogger.js';
-import { config } from './src/utils/config.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
@@ -22,14 +26,14 @@ const io = new Server(httpServer);
 
 
 const MongoStore = connectMongo.create({
-    mongoUrl: config.server.MONGO_URL,
+    mongoUrl: process.env.MONGO_URL,
     ttl: 600 
 })
 
 
 app.use(session({
     store: MongoStore,
-    secret: config.server.SECRET_KEY,
+    secret: process.env.SECRET_KEY,
     resave: true,
     saveUninitialized: true
 }))
@@ -46,9 +50,13 @@ app.set('view engine', 'pug');
 
 app.use('/api/productos', routerProductos);
 app.use('/api/carrito', routerCarrito);
+app.use('/api/productos-test', routerRandomProductos);
 app.use('/api/mensajes', routerMensajes);
 app.use('/api/', routerAuth);
 app.use('/api/home', routerHome);
+app.use('/api/randoms', routerRandoms);
+app.use('/api/info', routerInfo);
+
 
 app.get('*', (req, res)=>{
     const {url, method } = req;
@@ -63,7 +71,7 @@ minimist([], options);
 
 const CPU_CORES = os.cpus().length;
 const MODO = args.modo || args.m || options.default.modo;
-const PORT =  process.env.PORT || 8080;
+const PORT =  process.env.PORT;
 
 // parseInt(process.argv[2]) || args.port || args.p || options.default.port ;
 
@@ -87,8 +95,8 @@ if (cluster.isPrimary && MODO == 'CLUSTER') {
     } 
 
     const server = httpServer.listen(PORT, () => {
-        logger.info(`Servidor escuchando en puerto http://localhost:${PORT}/api - PID WORKER ${process.pid}`);
-        // `
+        logger.info(`Servidor escuchando ${PORT}`);
+        // en puerto http://localhost:${PORT} - PID WORKER ${process.pid}`
     });
 
     server.on('error', err => logger.error(`error en server ${err}`));
@@ -100,11 +108,9 @@ if (cluster.isPrimary && MODO == 'CLUSTER') {
         io.sockets.emit('from-server-messages', await listarMensajesNormalizados());
 
         socket.on('from-client-messages', async messages => {
-            await agregarMensaje(messages);
+            await agregarmensaje(messages);
             io.sockets.emit('from-server-messages', await listarMensajesNormalizados())
         });
 
     });
 }
-
-

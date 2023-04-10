@@ -1,0 +1,22 @@
+div.mt-5
+    h2(style="color:crimson;" class="text-center") Detalle del Producto
+    br
+    div.table-responsive
+        div(class="table-responsive")
+            table.table.table-dark
+                tr(class="text-center" style="color: yellow;") 
+                    th Producto 
+                    th Precio
+                    th Imagen
+                tr
+                    td(class="text-center col-3")=dtoProd.nombre
+                    td(class="text-center col-3")=dtoProd.precio
+                    td(class="text-center col-3")
+                        img(width="30" src=dtoProd.foto, alt="")
+    form(method="POST" action="/api/carrito/productos" class="mx-auto")
+        div.form-group
+            label(for="text") Id del producto
+            input.form-control(type="number" name="idProd" aria-describedby="userComent" min="1" value=`${dtoProd.id}` placeholder=`${dtoProd.id}` readonly)
+            label(for="text") Cantidad
+            input.form-control(type="number" name="cantidad" aria-describedby="userComent" min="1" max=`${dtoProd.stock}` required)
+            button.btn.btn-success.mt-3(type="submit") Agregar al carrito

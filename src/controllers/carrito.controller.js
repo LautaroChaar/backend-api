@@ -1,25 +1,21 @@
 import { logger } from '../utils/configLogger.js';
 import { carritosDao as apiCarrito } from '../service/index.js';
 import { productosDao as apiProductos } from '../service/index.js';
-import { usuariosDao as apiUsuarios } from '../service/index.js';
 import twilio from 'twilio';
 import { createTransport } from 'nodemailer';
-import Usuarios from '../classes/Usuarios.class.js';
-import UsuarioDTO from '../models/dtos/usuarios/usuariosDtoMongoDB.js';
 
-const usuario = new Usuarios();
 
 const accountSid = 'ACfb4578ba74862de8f8f3886cffdd8c53';
 const authToken = '02387549a0a141d04c6edbbfdf9eb84e';
 
-const TEST_MAIL = 'baby.tillman@ethereal.email';
+const TEST_MAIL = 'june.gerlach@ethereal.email'
 
 const transporter = createTransport({
    host: 'smtp.ethereal.email',
    port: 587,
    auth: {
        user: TEST_MAIL,
-       pass: 'BfmWpGTqfPeBGrNqSY'
+       pass: '1pJTZMMMusWsPfGZJF'
    }
 });
 
@@ -38,19 +34,12 @@ export async function getCartProducts(req, res) {
 
 export async function cartView(req, res) {
     const {url, method } = req;
-    const datos = await apiUsuarios.getById(req.user.username)
-    const info = {
-        edad: usuario.getAge(datos.dateOfBirth),
-        aniversario: usuario.getBirthday(datos.dateOfBirth)
-    }
-    const srcImg = `/uploads/${datos.avatar}`;
+    const { id, name, adress, age, phone, username, avatar } = req.user;
+    const srcImg = `/uploads/${avatar}`;
     logger.info(`Ruta ${method} /api/carrito${url}`);
-    const carrito = await apiCarrito.getById(datos.id);
-    const userInfo =  new UsuarioDTO(datos, info);
-    console.log(userInfo)
-    res.render('viewCarrito', {carrito, userInfo, srcImg});
+    const carrito = await apiCarrito.getById(id);
+    res.render('viewCarrito', { name, adress, age, phone, username, carrito, srcImg });
 }; 
-
 
 export async function addToCart (req, res) {
     const {url, method } = req;

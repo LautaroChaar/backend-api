@@ -1,7 +1,7 @@
 {
   "name": "backend-coderhouse-api",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "description": "This project was created for Coderhouse's 'Backend' course.",
   "main": "server.js",
   "scripts": {

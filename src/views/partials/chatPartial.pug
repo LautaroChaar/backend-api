@@ -1,0 +1,13 @@
+div.mt-5.mb-5
+    div.jumbotron
+        h3 General chat!
+        form
+            div.form-group
+                label(for="email") Email
+                input#email.form-control(type="email" aria-describedby="userComent" value=`${username}` placeholder=`${username}` readonly)
+            div.form-group
+                label(for="messageContent") Menssage:
+                textarea#messageContent.form-control(rows="4")
+            button.btn.btn-success.mt-3(type="button" onclick='sendMessage()') Send 
+            hr
+    div#history

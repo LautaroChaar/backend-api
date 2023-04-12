@@ -1,0 +1,22 @@
+div.mt-5
+    h2(style="color:crimson;" class="text-center") Product Detail
+    br
+    div.table-responsive
+        div(class="table-responsive")
+            table.table.table-dark
+                tr(class="text-center" style="color: yellow;") 
+                    th Product 
+                    th Price
+                    th Image
+                tr
+                    td(class="text-center col-3")=dtoProd.name
+                    td(class="text-center col-3")=dtoProd.price
+                    td(class="text-center col-3")
+                        img(width="30" src=dtoProd.image, alt="product-image")
+    form(method="POST" action="/api/cart/products" class="mx-auto")
+        div.form-group
+            label(for="text") Product id
+            input.form-control(type="number" name="idProd" aria-describedby="userComent" min="1" value=`${dtoProd.id}` placeholder=`${dtoProd.id}` readonly)
+            label(for="text") Quantity
+            input.form-control(type="number" name="quantity" aria-describedby="userComent" min="1" max=`${dtoProd.stock}` required)
+            button.btn.btn-success.mt-3(type="submit") Add to cart

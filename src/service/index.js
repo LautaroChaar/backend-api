@@ -1,27 +1,35 @@
-import { config } from '../config/config.js';
+import { config } from "../config/config.js";
 
-let productosDao;
-let carritosDao;
-let mensajesDao;
-let usuariosDao;
-let ordenesDao;
+let productsDao;
+let cartDao;
+let messageDao;
+let userDao;
+let orderDao;
 
 switch (config.server.PERS) {
+  case "mongoDB":
+    const { default: ProductsDaoMongoDB } = await import(
+      "../models/daos/products/productsDaoMongoDB.js"
+    );
+    const { default: CartsDaoMongoDB } = await import(
+      "../models/daos/cart/cartDaoMongoDB.js"
+    );
+    const { default: MessagesDaoMongoDB } = await import(
+      "../models/daos/messages/messagesDaoMongoDB.js"
+    );
+    const { default: UsersDaoMongoDB } = await import(
+      "../models/daos/users/usersDaoMongoDB.js"
+    );
+    const { default: OrdersDaoMongoDB } = await import(
+      "../models/daos/orders/ordersDaoMongoDB.js"
+    );
 
-    case 'mongoDB': 
-        const { default: ProductosDaoMongoDB } = await import('../models/daos/productos/productosDaoMongoDB.js');
-        const { default: CarritosDaoMongoDB } = await import('../models/daos/carritos/carritosDaoMongoDB.js');
-        const { default: MensajesDaoMongoDB } = await import('../models/daos/mensajes/mensajesDaoMongoDB.js');
-        const { default: UsuariosDaoMongoDB } = await import('../models/daos/usuarios/usuariosDaoMongoDB.js');
-        const { default: OrdenesDaoMongoDB } = await import('../models/daos/ordenes/ordenesDaoMongoDB.js');
+    productsDao = new ProductsDaoMongoDB();
+    cartDao = new CartsDaoMongoDB();
+    messageDao = new MessagesDaoMongoDB();
+    userDao = new UsersDaoMongoDB();
+    orderDao = new OrdersDaoMongoDB();
+    break;
+}
 
-        productosDao = new ProductosDaoMongoDB();
-        carritosDao = new CarritosDaoMongoDB();
-        mensajesDao = new MensajesDaoMongoDB();
-        usuariosDao = new UsuariosDaoMongoDB();
-        ordenesDao = new OrdenesDaoMongoDB();
-        break;
-
-    }
-
-export { productosDao, carritosDao, mensajesDao, usuariosDao, ordenesDao };
+export { productsDao, cartDao, messageDao, userDao, orderDao };

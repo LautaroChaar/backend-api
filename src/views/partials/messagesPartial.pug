@@ -1,0 +1,20 @@
+div.mt-5
+    h2(style="color:crimson;" class="text-center") Message history
+    br
+    div.table-responsive
+        if messages.length > 0
+            div(class="table-responsive")
+                table.table.table-dark
+                    tr(class="text-center" style="color: yellow;") 
+                        th Id
+                        th Email 
+                        th Timestamp
+                        th Content
+                    each message in messages
+                        tr
+                            td(class="text-center col-3")=message.id
+                            td(class="text-center col-3")=message.user.email
+                            td(class="text-center col-3")=message.timestamp
+                            td(class="text-center col-3")=message.text
+        else
+            h3(class="alert alert-warning text-center") Messages not found.

@@ -1,0 +1,35 @@
+div 
+    img(src=srcImg style="width: 60px; border-radius: 20px")
+    h1 #{userInfo.fullName}
+    h5 Email: #{userInfo.email} 
+    h5 Age: #{userInfo.age}
+    h5 Birthdate: #{userInfo.aniversary}
+    h5 Adress: #{userInfo.adress}
+    h5 Phone: +#{userInfo.phone}
+div 
+    div.table-responsive
+        if cart.products.length > 0
+            div(class="table-responsive")
+                table.table.table-dark
+                    tr(class="text-center" style="color: yellow;") 
+                        th Id
+                        th Product
+                        th Price
+                        th Quantity
+                    each product in cart.products
+                        tr
+                            td(class="text-center col-3")=product.id
+                            td(class="text-center col-3")=product.name
+                            td(class="text-center col-3")=product.totalPrice
+                            td(class="text-center col-3")=product.quantity
+        else
+            h3(class="alert alert-warning text-center") Cart is empty.
+    form(method="GET" action="/api/home")
+        div.form-group 
+            button.btn.btn-success.mt-3(type="submit") Go home
+    form(method="POST" action="/api/cart/buy/products")
+        div.form-group 
+            button.btn.btn-success.mt-3(type="submit") Buy
+
+
+

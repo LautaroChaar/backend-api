@@ -4,13 +4,14 @@ This project was created for Coderhouse's 'Backend' course.
 
 # Deploy with render.com
 
-https://api-coder.onrender.com/api/
+https://api-coder-uq3d.onrender.com/api/documentation
 
 # Applied technolologies :
 
 <p>Express</p>
 <p>Pug</p>
 <p>MongoDB Atlas</p>
+<p>Swagger</p>
 
 # Install project
 ## Clone repository

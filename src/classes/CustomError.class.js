@@ -1,9 +1,9 @@
 class CustomError {
-    constructor(codigo, descripcion, detalle) {
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.detalle = detalle;
-    }
+  constructor(code, description, detail) {
+    this.code = code;
+    this.description = description;
+    this.detail = detail;
+  }
 }
 
 export default CustomError;

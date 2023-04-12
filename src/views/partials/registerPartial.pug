@@ -1,0 +1,25 @@
+div.mt-5.mb-5(class="d-flex flex-column align-items-center")
+    h3 Register
+    form#login(method="POST" action="/api/register" enctype="multipart/form-data" class="mx-auto" onsubmit="getPhone()")
+        div.form-group
+            label(for="text") First name
+            input.form-control(type="text" name="name" aria-describedby="userComent"  required)
+            label(for="text") Last name
+            input.form-control(type="text" name="lastname" aria-describedby="userComent"  required)
+            label(for="text") Adress
+            input.form-control(type="text" name="adress" aria-describedby="userComent"  required)
+            label(for="text") Birthdate
+            input.form-control(type="date" name="dateOfBirth" aria-describedby="userComent"  min="1" required)
+            label(for="text" style="display: block;") Phone
+            input#phone.form-control(type="tel" name="phone" aria-describedby="userComent"  required)
+            label(for="text" style="display: block;") Image
+            input.form-control(type="file" name="avatar" aria-describedby="userComent" class="border-0" required)
+            label(for="text") Email
+            input.form-control(type="email" name="username" aria-describedby="userComent" required)
+            label(for="text") Password
+            input.form-control(type="password" name="password" aria-describedby="userComent" required)
+        div.form-group(class="d-flex justify-content-center")
+            button.btn.btn-success.mt-3(type="submit") Register
+    form(method="GET" action="/api/login")
+        div.form-group
+            button.btn.btn-success.mt-3(type="submit") Go login

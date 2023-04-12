@@ -1,0 +1,24 @@
+div.mt-5
+    h2(style="color:crimson;" class="text-center") Products list
+    br
+    div.table-responsive
+        if DB_PRODUCTS.length > 0
+            div(class="table-responsive")
+                table.table.table-dark
+                    tr(class="text-center" style="color: yellow;") 
+                        th Id
+                        th Product 
+                        th Price
+                        th Image
+                    each product in DB_PRODUCTS
+                        tr
+                            td(class="text-center col-3")=product.id
+                            td(class="text-center col-3")=product.name
+                            td(class="text-center col-3")=product.price
+                            td(class="text-center col-3")
+                                img(width="30" src=product.image, alt="product-image")
+                            td(class="text-center col-3")
+                                form(method="GET" action=`/api/products/${product.id}` class="mx-auto")
+                                    button.btn.btn-success.mt-3(type="submit") Detail 
+        else
+            h3(class="alert alert-warning text-center") Products not found.

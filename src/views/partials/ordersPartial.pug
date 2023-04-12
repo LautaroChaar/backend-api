@@ -1,0 +1,24 @@
+div.mt-5
+    h2(style="color:crimson;" class="text-center") Orders history
+    br
+    div.table-responsive
+        if orders.length > 0
+            div(class="table-responsive")
+                table.table.table-dark
+                    tr(class="text-center" style="color: yellow;") 
+                        th Id
+                        th Email 
+                        th State
+                        th Number of orders
+                        th Date
+                        th Order
+                    each order in orders
+                        tr
+                            td(class="text-center col-3")=order.id
+                            td(class="text-center col-3")=order.email
+                            td(class="text-center col-3")=order.state
+                            td(class="text-center col-3")=order.numberOfOrder
+                            td(class="text-center col-3")=order.timestamp
+                            td(class="text-center col-3")=order.items
+        else
+            h3(class="alert alert-warning text-center") Orders not found.

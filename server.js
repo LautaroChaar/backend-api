@@ -1,110 +1,136 @@
-import  express  from 'express';
-import { createServer  } from 'http';
-import { Server } from 'socket.io';
-import connectMongo from 'connect-mongo';
+import cluster from "cluster";
+import connectMongo from "connect-mongo";
+import cors from "cors";
+import express from "express";
 import session from "express-session";
-import passport from 'passport';
-import cors from 'cors';
-import minimist from 'minimist';
-import cluster from 'cluster';
-import os from 'os';
-import { routerProductos } from './src/routes/productos.routes.js';
-import { routerCarrito } from './src/routes/carrito.routes.js';
-import { routerMensajes } from './src/routes/mensajes.routes.js';
-import { routerAuth } from './src/routes/auth.routes.js';
-import { routerHome } from './src/routes/home.routes.js';
-import { agregarMensaje, listarMensajesNormalizados } from './src/controllers/mensajes.controller.js';
-import { logger } from './src/config/configLogger.js';
-import { config } from './src/config/config.js';
+import { createServer } from "http";
+import minimist from "minimist";
+import os from "os";
+import passport from "passport";
+import { Server } from "socket.io";
+import swaggerJSDoc from "swagger-jsdoc";
+import SwaggerUi from "swagger-ui-express";
+import { config } from "./src/config/config.js";
+import { logger } from "./src/config/configLogger.js";
+import {
+  addMessage,
+  listNormalizedMessages,
+} from "./src/controllers/messages.controller.js";
+import { routerAuth } from "./src/routes/auth.routes.js";
+import { routerCart } from "./src/routes/cart.routes.js";
+import { routerHome } from "./src/routes/home.routes.js";
+import { routerMessage } from "./src/routes/messages.routes.js";
+import { routerProducts } from "./src/routes/products.routes.js";
 
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 
 const MongoStore = connectMongo.create({
-    mongoUrl: config.server.MONGO_URL,
-    ttl: config.server.SESSION_TIME 
+  mongoUrl: config.server.MONGO_URL,
+  ttl: config.server.SESSION_TIME,
 });
 
-app.use(session({
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Coderhouse API",
+      version: "0.1.0",
+      description: `This API is made with Express and documented with Swagger for the Coderhouse Backend Course. You need to register and login here: ${config.server.HOST_URL}api/register 
+            to test all endpoints.`,
+    },
+    servers: [
+      {
+        url: config.server.HOST_URL,
+      },
+    ],
+  },
+  apis: ["./src/routes/*.js"],
+};
+
+const specs = swaggerJSDoc(swaggerOptions);
+
+app.use(
+  session({
     store: MongoStore,
     secret: config.server.SECRET_KEY,
     resave: true,
-    saveUninitialized: true
-}));
+    saveUninitialized: true,
+  })
+);
 
-if(config.server.NODE_ENV == 'development') {
-    app.use(cors())
-} else {
-    app.use(cors({
-        origin: `http://localhost:${config.server.PORT}`,
-        optionsSuccessStatus: 200,
-        methods: "GET, PUT, POST"
-    }));
-}
+app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true}));
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.set('views', './src/views');
-app.set('view engine', 'pug');
+app.set("views", "./src/views");
+app.set("view engine", "pug");
 
-app.use('/api/productos', routerProductos);
-app.use('/api/carrito', routerCarrito);
-app.use('/api/chat', routerMensajes);
-app.use('/api/', routerAuth);
-app.use('/api/home', routerHome);
+app.use("/api/documentation", SwaggerUi.serve, SwaggerUi.setup(specs));
+app.use("/api/products", routerProducts);
+app.use("/api/cart", routerCart);
+app.use("/api/chat", routerMessage);
+app.use("/api/", routerAuth);
+app.use("/api/home", routerHome);
 
-app.get('*', (req, res)=>{
-    const {url, method } = req;
-    logger.warn(`Ruta ${method} ${url} no implementada`)
-    res.render('viewRutaIncorrecta', { url, method });
+app.get("*", (req, res) => {
+  const { url, method } = req;
+  logger.warn(`Route ${method} ${url} not implemented`);
+  res.render("viewInvalidRoute", { url, method });
 });
 
 let args = minimist(process.argv.slice(2));
 
-let options = {default: { modo: 'FORK'}};
+let options = { default: { mode: "FORK" } };
 minimist([], options);
 
 const CPU_CORES = os.cpus().length;
-const MODO = args.modo || args.m || options.default.modo;
-const PORT =  process.env.PORT || 8080;
+const MODE = args.mode || args.m || options.default.mode;
+const PORT = process.env.PORT || 8080;
 
-parseInt(process.argv[2]) || args.port || args.p || options.default.port ;
+parseInt(process.argv[2]) || args.port || args.p || options.default.port;
 
-if (cluster.isPrimary && MODO == 'CLUSTER') {
-    for (let i = 0; i < CPU_CORES; i++) {
-        cluster.fork();
-    }
-    cluster.on('exit', worker => {
-        logger.info(`Worker ${process.pid} ${worker.id} ${worker.pid} finalizo ${new Date().toLocaleString()}`);
-        cluster.fork();
-    });
+if (cluster.isPrimary && MODE == "CLUSTER") {
+  for (let i = 0; i < CPU_CORES; i++) {
+    cluster.fork();
+  }
+  cluster.on("exit", (worker) => {
+    logger.info(
+      `Worker ${process.pid} ${worker.id} ${
+        worker.pid
+      } ended ${new Date().toLocaleString()}`
+    );
+    cluster.fork();
+  });
 } else {
-    if (MODO != 'FORK' && MODO != 'CLUSTER') {
-        logger.error(`El modo de ejecucion solicitado ( ${MODO} ) es incorrecto.`)
-        throw new Error()
-    } 
-    const server = httpServer.listen(PORT, () => {
-        logger.info(`Servidor escuchando en puerto http://localhost:${PORT}/api - PID WORKER ${process.pid}`);
+  if (MODE != "FORK" && MODE != "CLUSTER") {
+    logger.error(`The requested execution mode ( ${MODE} ) is incorrect.`);
+    throw new Error();
+  }
+  const server = httpServer.listen(PORT, () => {
+    logger.info(
+      `Server listening on ${config.server.HOST_URL}`
+    );
+  });
+
+  server.on("error", (err) => logger.error(`server error: ${err}`));
+
+  io.on("connection", async (socket) => {
+    logger.info(`New client connected! ${socket.id}`);
+
+    io.sockets.emit("from-server-messages", await listNormalizedMessages());
+
+    socket.on("from-client-messages", async (messages) => {
+      await addMessage(messages);
+      io.sockets.emit("from-server-messages", await listNormalizedMessages());
     });
-
-    server.on('error', err => logger.error(`error en server ${err}`));
-
-    io.on('connection', async socket => {
-        logger.info(`Nuevo cliente conectado! ${socket.id}`);
-
-        io.sockets.emit('from-server-messages', await listarMensajesNormalizados());
-
-        socket.on('from-client-messages', async messages => {
-            await agregarMensaje(messages);
-            io.sockets.emit('from-server-messages', await listarMensajesNormalizados())
-        });
-    });
+  });
 }
 
 export default app;

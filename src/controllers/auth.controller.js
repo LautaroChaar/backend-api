@@ -1,131 +1,141 @@
-import passport from 'passport';
-import { Strategy } from 'passport-local';
-import bcrypt from 'bcrypt';
-import { logger } from '../config/configLogger.js';
-import { usuariosDao as apiUsuarios } from '../service/index.js';
-import multer from 'multer';
-import { config } from '../config/config.js';
-import { createTransport } from 'nodemailer';
+import bcrypt from "bcrypt";
+import multer from "multer";
+import { createTransport } from "nodemailer";
+import passport from "passport";
+import { Strategy } from "passport-local";
+import { config } from "../config/config.js";
+import { logger } from "../config/configLogger.js";
+import { userDao as userApi } from "../service/index.js";
 
 const transporter = createTransport({
-   host: 'smtp.ethereal.email',
-   port: 587,
-   auth: {
-       user: config.server.TEST_EMAIL,
-       pass: config.server.PASS_EMAIL
-   }
+  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: config.server.TEST_EMAIL,
+    pass: config.server.PASS_EMAIL,
+  },
 });
 
-async function generateHashPassword(password){
-    const hashPassword = await bcrypt.hash(password, 10);
-    return hashPassword;
+async function generateHashPassword(password) {
+  const hashPassword = await bcrypt.hash(password, 10);
+  return hashPassword;
 }
 
-async function verifyPass(usuario, password) {
-    const match = await bcrypt.compare(password, usuario.password);
-    return match;
+async function verifyPass(user, password) {
+  const match = await bcrypt.compare(password, user.password);
+  return match;
 }
 
 const LocalStrategy = Strategy;
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/uploads');
-    },
-    filename: function (req, file, cb) {
-      cb(null, `${Date.now()} - ${file.originalname}`);
-    }
-  })
-  
+  destination: function (req, file, cb) {
+    cb(null, "./public/uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()} - ${file.originalname}`);
+  },
+});
+
 export const upload = multer({ storage: storage });
 
-passport.use(new LocalStrategy(
-    async function(username, password, done) {
-        const existeUsuario = await apiUsuarios.getById(username);
-        if (!existeUsuario) {
-            return done(null, false);
-        } else {
-            const match = await verifyPass(existeUsuario, password);
-            if(!match){
-                return done(null, false);
-            }
-            return done(null, existeUsuario);
-        }
+passport.use(
+  new LocalStrategy(async function (username, password, done) {
+    const userExists = await userApi.getById(username);
+    if (!userExists) {
+      return done(null, false);
+    } else {
+      const match = await verifyPass(userExists, password);
+      if (!match) {
+        return done(null, false);
+      }
+      return done(null, userExists);
     }
-));
+  })
+);
 
-passport.serializeUser((usuario, done)=>{
-    done(null, usuario.username);
+passport.serializeUser((user, done) => {
+  done(null, user.username);
 });
 
-passport.deserializeUser (async (email, done) => {
-    const existeUsuario = await apiUsuarios.getById(email);
-    done(null, existeUsuario);
+passport.deserializeUser(async (email, done) => {
+  const userExists = await userApi.getById(email);
+  done(null, userExists);
 });
 
-export const pass = passport.authenticate('local', {successRedirect: '/api/', failureRedirect: '/api/login-error'});
+export const pass = passport.authenticate("local", {
+  successRedirect: "/api/",
+  failureRedirect: "/api/login-error",
+});
 
-export function home (req, res) {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} ${url}`);
-    res.redirect('/api/home');
-};
+export function home(req, res) {
+  const { url, method } = req;
+  logger.info(`Route ${method} ${url}`);
+  res.redirect("/api/home");
+}
 
-export function login (req, res) {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} ${url}`);
-    res.render('viewLogin');
-};
+export function login(req, res) {
+  const { url, method } = req;
+  logger.info(`Route ${method} ${url}`);
+  res.render("viewLogin");
+}
 
-export function viewLogout (req, res) {
-    const {url, method } = req;
-    const nombre = req.user.username;
-    logger.info(`Ruta ${method} ${url}`);
-    req.logOut(err => {
-        res.render('viewLogout', { nombre });
-    });
-};
+export function viewLogout(req, res) {
+  const { url, method } = req;
+  const name = req.user.username;
+  logger.info(`Route ${method} ${url}`);
+  req.logOut((err) => {
+    res.render("viewLogout", { name });
+  });
+}
 
 export function register(req, res) {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} ${url}`);
-    res.render('viewRegistro');
-};
+  const { url, method } = req;
+  logger.info(`Route ${method} ${url}`);
+  res.render("viewRegister");
+}
 
 export async function registerNewUser(req, res) {
-    try {
-        const validationRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        const { name, lastname, adress, dateOfBirth, phone, username, password } = req.body;
-        const avatar = req.file.filename;
-        const nuevoUsuario = await apiUsuarios.getById(username);
-        if (validationRegex.test(username) && (!nuevoUsuario)) {
-            const newUser = { name, lastname, adress, dateOfBirth, phone, avatar, username, password: await generateHashPassword(password)};
-            await apiUsuarios.add(newUser);
-            const mailOptions = {
-                from: 'Servidor Node.js',
-                to: config.server.TEST_EMAIL,
-                subject: 'Nuevo Registro',
-                html: `<h1>${name}</h1><h5>Email: ${username}</h5><h5>Fecha de nacimiento: ${dateOfBirth}</h5><h5>Dirección: ${adress}</h5><h5>Teléfono: ${phone}</h5>`
-            }
-            const info = await transporter.sendMail(mailOptions);
-            logger.info(info);
-            res.redirect('/api/login');
-        } else {
-            res.render('viewRegistroFallido', {username})
-        }
-    } catch (error) {
-        logger.error(error);
+  try {
+    const validationRegex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const { name, lastname, adress, dateOfBirth, phone, username, password } =
+      req.body;
+    const avatar = req.file.filename;
+    const newUser = await userApi.getById(username);
+    if (validationRegex.test(username) && !newUser) {
+      const newUser = {
+        name,
+        lastname,
+        adress,
+        dateOfBirth,
+        phone,
+        avatar,
+        username,
+        password: await generateHashPassword(password),
+      };
+      await userApi.add(newUser);
+      const mailOptions = {
+        from: "Servidor Node.js",
+        to: config.server.TEST_EMAIL,
+        subject: "New register",
+        html: `<h1>${name}</h1><h5>Email: ${username}</h5><h5>Birthdate: ${dateOfBirth}</h5><h5>Adress: ${adress}</h5><h5>Phone: ${phone}</h5>`,
+      };
+      const info = await transporter.sendMail(mailOptions);
+      logger.info(info);
+      res.redirect("/api/login");
+    } else {
+      res.render("viewRegisterFailed", { username });
     }
-};
+  } catch (error) {
+    logger.error(error);
+  }
+}
 
 export function loginError(req, res) {
-    const {url, method } = req;
-    logger.info(`Ruta ${method} ${url}`);
-    res.render('viewLoginFallido');
-};
-
-
-
-
-
-
+  const { url, method } = req;
+  logger.info(`Route ${method} ${url}`);
+  res.render("viewLoginFailed");
+}

@@ -83,7 +83,7 @@ class MongoDBContainer {
       if ((await this.model.find({ id })) == false) {
         throw new CustomError(404, "EmptyCart", "Cart not found.");
       } else {
-        await this.model.updateOne({ id }, { $set: { productos: [] } });
+        await this.model.updateOne({ id }, { $set: { products: [] } });
         return { msg: `Updated!` };
       }
     } catch (error) {

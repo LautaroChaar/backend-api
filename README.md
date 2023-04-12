@@ -4,7 +4,7 @@ This project was created for Coderhouse's 'Backend' course.
 
 # Deploy with render.com
 
-https://api-coder-uq3d.onrender.com/api/documentation
+https://api-coder-wb79.onrender.com/api/documentation
 
 # Applied technolologies :
 
